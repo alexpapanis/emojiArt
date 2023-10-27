@@ -11,10 +11,10 @@ struct EmojiArtModel {
     var background = Background.blank
     var emojis = [Emoji]()
     
-    struct Emoji: Identifiable {
+    struct Emoji: Identifiable, Hashable {
         let text: String
-        let x: Int
-        let y: Int
+        var x: Int
+        var y: Int
         var size: Int
         let id: Int
         
