@@ -29,6 +29,10 @@ class EmojiArtDocument: ObservableObject {
         emojiArt.addEmoji(emoji, at: location, size: Int(size))
     }
     
+//    func addEmoji(_ emoji: String, at location: CGPoint, size: CGFloat) {
+//        emojiArt.addEmoji(emoji, at: (x: Int(location.x), y: Int(location.y)), size: Int(size))
+//    }
+    
     func moveEmoji(_ emoji: EmojiArtModel.Emoji, by offset: CGSize) {
         if let index = emojiArt.emojis.index(matching: emoji) {
             emojiArt.emojis[index].x += Int(offset.width)
