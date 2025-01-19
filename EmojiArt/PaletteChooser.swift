@@ -30,7 +30,40 @@ struct PaletteChooser: View {
             }
         } label: {
             Image(systemName: "paintpalette")
-        }.font(emojiFont)
+        }
+        .font(emojiFont)
+        .contextMenu { contextMenu }
+    }
+    
+    @ViewBuilder
+    var contextMenu: some View {
+        AnimatedActionButton(title: "Edit", systemImage: "pencil") {
+//            editing = true
+            paletteToEdit = store.palette(at: chosenPaletteIndex)
+        }
+        AnimatedActionButton(title: "New", systemImage: "plus") {
+            store.insertPalette(named: "New", emojis: "", at: chosenPaletteIndex)
+//            editing = true
+            paletteToEdit = store.palette(at: chosenPaletteIndex)
+        }
+        AnimatedActionButton(title: "Delete", systemImage: "minus.circle") {
+            chosenPaletteIndex = store.removePalette(at: chosenPaletteIndex)
+        }
+        gotoMenu
+    }
+    
+    var gotoMenu: some View {
+        Menu {
+            ForEach(store.palettes) { palette in
+                AnimatedActionButton(title: palette.name) {
+                    if let index = store.palettes.index(matching: palette) {
+                        chosenPaletteIndex = index
+                    }
+                }
+            }
+        } label: {
+            Label("Go To", systemImage: "text.insert")
+        }
     }
     
     func body(for palette: Palette) -> some View {
@@ -41,7 +74,16 @@ struct PaletteChooser: View {
         }
         .id(palette.id)
         .transition(rollTransition)
+//        .popover(isPresented: $editing) {
+//            PaletteEditor(palette: $store.palettes[chosenPaletteIndex])
+//        }
+        .popover(item: $paletteToEdit) { palette in
+            PaletteEditor(palette: $store.palettes[palette])
+        }
     }
+    
+    @State private var editing: Bool = false
+    @State private var paletteToEdit: Palette?
     
     var rollTransition: AnyTransition {
         AnyTransition.asymmetric(
@@ -50,10 +92,10 @@ struct PaletteChooser: View {
     }
 }
 
-#Preview {
-    EmojiArtDocumentView(document: EmojiArtDocument())
-}
-
+//#Preview {
+//    EmojiArtDocumentView(document: EmojiArtDocument())
+//}
+//
 
 struct ScrollingEmojiView: View {
     

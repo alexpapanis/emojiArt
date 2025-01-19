@@ -16,3 +16,25 @@ struct OptionalImage: View {
         }
     }
 }
+
+struct AnimatedActionButton: View {
+    var title: String? = nil
+    var systemImage: String? = nil
+    let action: () -> Void
+    
+    var body: some View {
+        Button {
+            withAnimation {
+                action()
+            }
+        } label: {
+            if let title, let systemImage {
+                Label(title, systemImage: systemImage)
+            } else if let title {
+                Text(title)
+            } else if let systemImage {
+                Image(systemName: systemImage)
+            }
+        }
+    }
+}
