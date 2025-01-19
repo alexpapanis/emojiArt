@@ -13,6 +13,18 @@ extension Collection where Element: Identifiable {
     }
 }
 
+extension String {
+    // removes any duplicate Characters
+    // preserves the order of the Characters
+    var uniqued: String {
+        reduce(into: "") { sofar, element in
+            if !sofar.contains(element) {
+                sofar.append(element)
+            }
+        }
+    }
+}
+
 extension RangeReplaceableCollection where Element: Identifiable {
     mutating func remove(_ element: Element) {
         if let index = index(matching: element) {
