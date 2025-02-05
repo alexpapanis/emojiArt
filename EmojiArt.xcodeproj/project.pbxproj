@@ -28,6 +28,7 @@
 		42573D962AEAFB0C00696ABD /* EmojiArtDocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiArtDocumentView.swift; sourceTree = "<group>"; };
 		42573D982AEAFB0D00696ABD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42573D9B2AEAFB0D00696ABD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4277FEB92D52B1BD00160C46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		427B0F4D2D3CA56C00E385FF /* PaletteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteStore.swift; sourceTree = "<group>"; };
 		427B0F4F2D3CB57400E385FF /* PaletteChooser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteChooser.swift; sourceTree = "<group>"; };
 		427B0F512D3CC6BE00E385FF /* PaletteEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaletteEditor.swift; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 		42573D932AEAFB0C00696ABD /* EmojiArt */ = {
 			isa = PBXGroup;
 			children = (
+				4277FEB92D52B1BD00160C46 /* Info.plist */,
 				427B0F512D3CC6BE00E385FF /* PaletteEditor.swift */,
 				427B0F4F2D3CB57400E385FF /* PaletteChooser.swift */,
 				427B0F4D2D3CA56C00E385FF /* PaletteStore.swift */,
@@ -311,6 +313,7 @@
 				DEVELOPMENT_TEAM = 3FMA3WV25L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EmojiArt/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -341,6 +344,7 @@
 				DEVELOPMENT_TEAM = 3FMA3WV25L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EmojiArt/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -43,3 +43,51 @@ struct IdentifiableAlert: Identifiable {
     var id: String
     var alert: () -> Alert
 }
+
+struct UndoRedoButtons: View {
+    let undo: String?
+    let redo: String?
+    
+    @Environment(\.undoManager) var undoManager
+    
+    var body: some View {
+        let canUndo = undoManager?.canUndo ?? false
+        let canRedo = undoManager?.canRedo ?? false
+        HStack {
+            Button {
+                undoManager?.undo()
+            } label: {
+                Image(systemName: "arrow.uturn.backward.circle")
+            }
+            .contextMenu {
+                Button {
+                    undoManager?.undo()
+                } label: {
+                    Label(undo ?? "Undo", systemImage: "arrow.uturn.backward")
+                }
+            }.disabled(!canUndo)
+            
+            Button {
+                undoManager?.redo()
+            } label: {
+                Image(systemName: "arrow.uturn.forward.circle")
+            }
+            .contextMenu {
+                Button {
+                    undoManager?.redo()
+                } label: {
+                    Label(redo ?? "Redo", systemImage: "arrow.uturn.forward")
+                }
+            }.disabled(!canRedo)
+        }
+    }
+}
+
+extension UndoManager {
+    var optionalUndoMenuItemTitle: String? {
+        canUndo ? undoMenuItemTitle : nil
+    }
+    var optionalRedoMenuItemTitle: String? {
+        canRedo ? redoMenuItemTitle : nil
+    }
+}
