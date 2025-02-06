@@ -40,28 +40,11 @@
 	</array>
 	<key>UISupportsDocumentBrowser</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>The camera can be used to set the background of an EmojiArt document</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>The Photo Library can be used to set the background of an EmojiArt document</string>
 	<key>UTImportedTypeDeclarations</key>
-	<array>
-		<dict>
-			<key>UTTypeConformsTo</key>
-			<array>
-				<string>public.data</string>
-				<string>public.content</string>
-			</array>
-			<key>UTTypeDescription</key>
-			<string>EmojiArt</string>
-			<key>UTTypeIconFiles</key>
-			<array/>
-			<key>UTTypeIdentifier</key>
-			<string>br.com.papanis.emojiart</string>
-			<key>UTTypeTagSpecification</key>
-			<dict>
-				<key>public.filename-extension</key>
-				<array>
-					<string>emojiart</string>
-				</array>
-			</dict>
-		</dict>
-	</array>
+	<string></string>
 </dict>
 </plist>
